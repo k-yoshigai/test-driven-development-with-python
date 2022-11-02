@@ -10,3 +10,8 @@ class TestMoney:
     def test_equality(self):
         assert money.Dollar(5).equals(money.Dollar(5))
         assert not money.Dollar(5).equals(money.Dollar(6))
+
+    def test_franc_multiplication(self):
+        five = money.Franc(5)
+        assert money.Franc(10) == five.times(2)
+        assert money.Franc(15) == five.times(3)
