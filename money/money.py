@@ -12,7 +12,7 @@ class Dollar:
         return self.amount == dollar.amount
 
 
-class Fracn:
+class Franc:
     def __init__(self, amount):
         self.amount = amount
 
@@ -20,7 +20,7 @@ class Fracn:
         return __o.amount == self.amount
 
     def times(self, multiplier):
-        return Fracn(self.amount * multiplier)
+        return Franc(self.amount * multiplier)
 
     def equals(self, dollar):
         return self.amount == dollar.amount
