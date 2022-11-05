@@ -1,4 +1,8 @@
 class Money:
+    def __init__(self, amount, currency):
+        self.amount = amount
+        self.currency = currency
+
     def __eq__(self, __o):
         is_same_class_name = self.__class__.__name__ == __o.__class__.__name__
         return __o.amount == self.amount and is_same_class_name
@@ -9,24 +13,18 @@ class Money:
 
     @staticmethod
     def dollar(amount):
-        return Dollar(amount)
+        return Dollar(amount, "USD")
 
     @staticmethod
     def franc(amount):
-        return Franc(amount)
+        return Franc(amount, "CHF")
 
 
 class Dollar(Money):
-    def __init__(self, amount):
-        self.amount = amount
-
     def times(self, multiplier):
-        return Dollar(self.amount * multiplier)
+        return Dollar(self.amount * multiplier, "USD")
 
 
 class Franc(Money):
-    def __init__(self, amount):
-        self.amount = amount
-
     def times(self, multiplier):
-        return Franc(self.amount * multiplier)
+        return Franc(self.amount * multiplier, "CHF")
