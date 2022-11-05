@@ -19,3 +19,6 @@ class TestMoney:
         assert not money.Money.franc(5).equals(money.Money.franc(6))
 
         assert not money.Money.dollar(5).equals(money.Money.franc(5))
+
+    def test_different_class_equality(self):
+        assert money.Money(10, "CHF").equals(money.Franc(10, "CHF"))

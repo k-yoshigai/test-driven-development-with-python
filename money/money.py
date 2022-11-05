@@ -8,8 +8,8 @@ class Money:
         return __o.amount == self.amount and is_same_class_name
 
     def equals(self, money):
-        is_same_class_name = self.__class__.__name__ == money.__class__.__name__
-        return self.amount == money.amount and is_same_class_name
+        is_same_currency = self.currency == money.currency
+        return self.amount == money.amount and is_same_currency
 
     @staticmethod
     def dollar(amount):
@@ -22,9 +22,9 @@ class Money:
 
 class Dollar(Money):
     def times(self, multiplier):
-        return Dollar(self.amount * multiplier, "USD")
+        return Dollar(self.amount * multiplier, self.currency)
 
 
 class Franc(Money):
     def times(self, multiplier):
-        return Franc(self.amount * multiplier, "CHF")
+        return Franc(self.amount * multiplier, self.currency)
