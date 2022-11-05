@@ -1,9 +1,19 @@
 class Money:
     def __eq__(self, __o):
-        return __o.amount == self.amount
+        is_same_class_name = self.__class__.__name__ == __o.__class__.__name__
+        return __o.amount == self.amount and is_same_class_name
 
     def equals(self, money):
-        return self.amount == money.amount
+        is_same_class_name = self.__class__.__name__ == money.__class__.__name__
+        return self.amount == money.amount and is_same_class_name
+
+    @staticmethod
+    def dollar(amount):
+        return Dollar(amount)
+
+    @staticmethod
+    def franc(amount):
+        return Franc(amount)
 
 
 class Dollar(Money):
