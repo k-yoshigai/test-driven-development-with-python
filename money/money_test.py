@@ -19,3 +19,10 @@ class TestMoney:
         assert not money.Money.franc(5).equals(money.Money.franc(6))
 
         assert not money.Money.dollar(5).equals(money.Money.franc(5))
+
+    def test_simple_addition(self):
+        five = money.Money.dollar(5)
+        sum = five.plus(five)
+        bank = Bank()
+        reduced = bank.reduce(sum, "USD")
+        assert money.dollar(10) == reduced
