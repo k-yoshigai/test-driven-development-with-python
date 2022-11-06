@@ -11,20 +11,13 @@ class Money:
         is_same_currency = self.currency == money.currency
         return self.amount == money.amount and is_same_currency
 
+    def times(self, multiplier):
+        return Money(self.amount * multiplier, self.currency)
+
     @staticmethod
     def dollar(amount):
-        return Dollar(amount, "USD")
+        return Money(amount, "USD")
 
     @staticmethod
     def franc(amount):
-        return Franc(amount, "CHF")
-
-
-class Dollar(Money):
-    def times(self, multiplier):
-        return Dollar(self.amount * multiplier, self.currency)
-
-
-class Franc(Money):
-    def times(self, multiplier):
-        return Franc(self.amount * multiplier, self.currency)
+        return Money(amount, "CHF")
