@@ -35,6 +35,7 @@ class Bank:
         self.addend = addend
 
     def reduce(self, to):
+        # FIXME
         amount = self.augend.amount + self.addend.amount
         return Money.dollar(amount, to)
 
